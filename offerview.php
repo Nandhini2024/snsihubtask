@@ -1,0 +1,624 @@
+<html lang="en">
+     <head>
+<meta charset="utf-8">
+<meta content="width=device width, initial scale=1.0" name="viewport" >
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<script src="https://kit.fontawesome.com/7eb6e8db67.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="my.css">
+<title>minimart Offer</title>
+<style type="text/css">
+.wrapper{
+                background-color: rgb(253, 251, 108);
+                 width: 100%;
+                 height: 10%;
+                 top:0px;
+                 position: sticky;
+                 ;
+                 } 
+.minimart_head{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#minimart{
+    background-color: rgb(248, 183, 6);
+    border-radius: 20%;
+    margin-left: 20%;
+    margin-top: 1%;
+    border-color: black;
+      font-family: Georgia;
+
+}
+#minimart:hover{
+  background-color: #F6A333; 
+} 
+ #cart-icon{
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding-top: 10px;
+  margin-left:30rem;
+  margin-top:5px;
+  color:rgb(177, 106, 3  );
+} 
+.box{
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  position: relative;
+} 
+
+.cart-count{
+    color:white;
+  position: relative;
+  background-color: #2f3542;
+  top: 0px;
+  right: 0;
+  padding: 3px;
+  height: 20px;
+  width: 20px;
+  font-size:20px;
+  line-height:10px ;
+  border-radius: 50%;
+  z-index: 99;
+}
+.cart{
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 400px;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+  background-color:#EBEAE8;
+  box-shadow: 0 1px 4px rgba(40, 37, 37, 0.1);
+  z-index: 100;
+}
+
+.cart-active{
+  right:0;
+  transition: 0.5s;
+}
+
+.cart-title{
+  /* position: relative; */
+  text-align: center;
+  color: #900C3F;
+  font-family: Georgia;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  padding-bottom:20px ;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.header{
+    background-color: #caf8ef;
+  background:  linear-gradient(to bottom, #caf8ef 20%, #36f8d1 80%);
+ float: left;
+ width: 20%;
+ height:100%;
+ top:64px;
+ position: fixed;
+ }
+  .toy_img{
+    width: 60%;
+   height: 80%; 
+   border-radius: 80%; 
+     margin-left: 20%;
+   margin-top: 10%; 
+ } 
+.img-fluid{
+  width: 100%;
+  height: 100%;
+  animation-duration: 1s;
+    animation-name: slidein1;
+    animation-direction: alternate;
+  } 
+.toyscategories{
+  font-family: Georgia;
+  color: #900C3F; 
+  font-size: 17px; 
+  margin-left:30px;
+  background-color: transparent;
+  border: none;
+  background: none;
+}
+
+.addtoyimg{
+  width: 78%;
+  height:200px;
+  position: absolute;
+  top: 80px;
+  left: 21%;
+  right: 50px;
+}
+.toyadd{
+  width: 78%;
+  height:200px;
+  position: fixed;
+  top: 80px;
+  left: 21%;
+  right: 50px;
+}    
+.container{
+  max-width: 1200px;
+  padding: 1rem;
+  /* margin: auto; */
+  margin-top:0%;
+  width: 100%;
+  position:inherit;
+  background-color:rgb(234, 194, 135 );
+}
+h2.title{
+  font-family: Georgia;
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color:brown;
+}
+
+.shop-content{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,auto));
+  gap:1.5rem;
+  justify-content: center;
+  align-content: center;
+  position:inherit;
+}
+
+.product-box{
+  position:inherit;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 1px 4px rgba(40, 37, 37, 0.1);
+  border-radius: 3px;
+}
+
+.pic{
+  overflow: hidden;
+}
+
+.pic:hover img{
+transform: scale(1.5);
+}
+
+.product-img{
+  transition: 0.4s;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  /* position:relative; */
+  /* width: 300px;
+  height:250px; */
+}
+
+.product-title{
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: Georgia;
+  color:brown;
+}
+
+
+.product-price{
+  font-weight:500 ;
+  font-family: Georgia;
+  color:brown;
+}
+
+.add-cart{
+  position: inherit;
+  margin-left:80%;
+  margin-top:0%;
+  background-color: #2ed573;
+  color:white;
+  padding: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 40px;
+  transition: 0.5s;
+}
+
+.add-cart:hover{
+  background-color:rgba(255, 0, 0, 0.786);
+}
+.cart-img{
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border:2px solid  rgba(0,0,0,0.1);
+  padding: 5px;
+}
+.detail-box{
+  display: grid;
+  row-gap: 0.5rem; 
+  /* margin-top:10px; */
+  margin-bottom:10px;
+
+
+}
+.price-box{
+  display: flex;
+    justify-content: space-between; 
+    margin-bottom:1px;
+
+}
+.cart-product-title{
+   font-size: 1rem;
+   text-transform: uppercase;
+   color:#ff6348;
+   font-weight: 500;
+}
+
+.cart-price{
+  font-weight: 500;
+  margin-top:1px;
+}
+
+.cart-quantity{
+  border:1px solid rgba(0,0,0,0.1);
+  outline:none ;
+  width: 2.4rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.cart-remove{
+  font-size: 24px;
+  color:red;
+  cursor: pointer;
+  margin-top:-30px;
+  margin-left:50vh;
+}
+
+.total{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.total-title{
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.total-price{
+  margin-left: 0.5rem;
+}
+
+.btn-buy{
+  padding: 12px 20px;
+  background-color:rgb(248, 183, 6);
+  color:#fff;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#cart-close{
+  position: absolute;
+  top: 1rem;
+  right: 0.8rem;
+  font-size: 2rem;
+  cursor: pointer;
+  color:rgb(248, 183, 6);
+}
+img{
+  width: 100%;
+}
+
+.had{
+    background-size: contain;
+    background-repeat:no-repeat;
+    /* max-width:1500vh;
+    margin-right:0px; */
+                    margin-top: 5%;
+                    padding: 10px;
+                    padd
+                    align:center;
+                    /* margin-left:10%; */ */
+}
+
+
+   </style>
+    </head>
+
+    <body>
+    <div class="wrapper">
+                 <div class="minimart_head">
+                    <!-- <button class="minimart" onclick="minimart()">miniMart</button>
+                    <button class="minimart" onclick="grocery()">Grocery </button> -->
+                    <button type="button" class="btn" id="minimart" onclick="minimart()">miniMart</button>
+                 <button type="button" class="btn" id="minimart" onclick="grocery()">Grocery</button>
+                                 <!--      <div class="box">
+                      <div id="cart-icon">
+                    <div class="cart-count">0</div>
+                  <i class="fa-solid fa-cart-shopping"></i></div>  
+                </div>
+                
+              </div>   
+              <div class="cart">
+        <div class="cart-title">Cart Items      
+               <div id="cart-close"> <i class="fa-solid fa-rectangle-xmark"></i></div>
+</div>
+        <div class="cart-content">
+
+        </div>
+        
+
+      <div class="total">
+        <div class="total-title">Total</div>
+        <div class="total-price">Rs.0</div>
+      </div>
+
+      <button class="btn-buy">Place Order</button>
+
+      <ion-icon name="close" id="cart-close"></ion-icon>
+
+      </div>
+  </div>  -->
+
+
+
+<main id="main">
+
+<!-- <div class="had">
+<img src="images.php/specialoffer.jpeg" alt="offer" style="width:100%;height:50vh;">
+</div> -->
+<div class="container">
+    <h2 class="title">Groceries for Best Price</h2>
+    <div class="shop-content">
+
+      <div class="product-box">
+        
+        <div class="pic"><img src="images.php/dhall.jpeg" class="product-img"></div>
+        <h2 class="product-title">Dhal</h2>
+        <span class="product-price">Rs.19</span>
+         <div class="add-cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+       </div> 
+      </div>
+
+      <div class="product-box">
+        <div class="pic"><img src="images.php/kidneyean.jpeg" class="product-img"></div>
+        <h2 class="product-title">Kidney Bean</h2>
+        <span class="product-price">Rs.29</span>
+        <div class="add-cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+       </div> 
+      </div>
+
+
+      <div class="product-box">
+        <div class="pic"><img src="images.php/Maggie.jpeg" class="product-img"></div>
+        <h2 class="product-title">Maggie</h2>
+        <span class="product-price">Rs.10</span>
+        <div class="add-cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+       </div> 
+      </div>
+
+
+      <div class="product-box">
+        <div class="pic"><img src="images.php/buiscuits.jpeg" class="product-img"></div>
+        <h2 class="product-title">Buiscuits</h2>
+        <span class="product-price">Rs.9</span>
+        <div class="add-cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+       </div> 
+      </div>
+
+
+      <div class="product-box">
+        <div class="pic"><img src="images.php/chilly.jpeg" class="product-img"></div>
+        <h2 class="product-title">Red Chilly</h2>
+        <span class="product-price">Rs.19</span>
+        <div class="add-cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+       </div> 
+      </div>
+
+
+       <div class="product-box">
+        <div class="pic"><img src="images.php/healthdrink.jpeg" class="product-img"></div>
+        <h2 class="product-title">Health Drinks</h2>
+        <span class="product-price">Rs.20</span>
+        <div class="add-cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+       </div> 
+      </div>
+  
+      <div class="product-box">
+        <div class="pic"><img src="images.php/gram.jpeg" class="product-img"></div>
+        <h2 class="product-title">Green Gram</h2>
+        <span class="product-price">Rs.17</span>
+        <div class="add-cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+       </div> 
+      </div>
+  
+      <div class="product-box">
+        <div class="pic"><img src="images.php/millets.jpeg" class="product-img"></div>
+        <h2 class="product-title">Millets</h2>
+        <span class="product-price">Rs.29</span>
+        <div class="add-cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+       </div> 
+      </div> 
+      <div class="product-box">
+        <div class="pic"><img src="images.php/toy8.jpeg" class="product-img"></div>
+        <h2 class="product-title">Toy8</h2>
+        <span class="product-price">Rs.29</span>
+        <div class="add-cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+       </div> 
+      </div> 
+      <div class="product-box">
+        <div class="pic"><img src="images.php/toy3.jpeg" class="product-img"></div>
+        <h2 class="product-title">Toy3</h2>
+        <span class="product-price">Rs.29</span>
+        <div class="add-cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+       </div> 
+      </div> 
+</div>
+</div>
+<script>
+    const btnCart=document.querySelector('#cart-icon');
+const cart=document.querySelector('.cart');
+const btnClose=document.querySelector('#cart-close');
+function minimart(){
+  window.location="miniproject.php";
+}
+function grocery(){
+    window.location="miniprojectgrocery.php";
+}
+btnCart.addEventListener('click',()=>{
+  cart.classList.add('cart-active');
+});
+
+btnClose.addEventListener('click',()=>{
+  cart.classList.remove('cart-active');
+});
+
+document.addEventListener('DOMContentLoaded',loadProduct);
+
+function loadProduct(){
+  loadContent();
+
+}
+
+function loadContent(){
+  //Remove product Items  From Cart
+  let btnRemove=document.querySelectorAll('.cart-remove');
+  btnRemove.forEach((btn)=>{
+    btn.addEventListener('click',removeItem);
+  });
+
+  //Product Item Change Event
+  let qtyElements=document.querySelectorAll('.cart-quantity');
+  qtyElements.forEach((input)=>{
+    input.addEventListener('change',changeQty);
+  });
+
+  //Product Cart
+  
+  let cartBtns=document.querySelectorAll('.add-cart');
+  cartBtns.forEach((btn)=>{
+    btn.addEventListener('click',addCart);
+  });
+
+  updateTotal();
+}
+
+
+//Remove Item
+function removeItem(){
+  if(confirm('Are Your Sure to Remove')){
+    let title=this.parentElement.querySelector('.cart-product-title').innerHTML;
+    itemList=itemList.filter(el=>el.title!=title);
+    this.parentElement.remove();
+    loadContent();
+  }
+}
+
+//Change Quantity
+function changeQty(){
+  if(isNaN(this.value) || this.value<1){
+    this.value=1;
+  }
+  loadContent();
+}
+
+let itemList=[];
+
+//Add Cart
+function addCart(){
+ let product=this.parentElement;
+ let title=product.querySelector('.product-title').innerHTML;
+ let price=product.querySelector('.product-price').innerHTML;
+ let imgSrc=product.querySelector('.product-img').src;
+ //console.log(title,price,imgSrc);
+ 
+ let newProduct={title,price,imgSrc}
+
+ //Check Product already Exist in Cart
+ if(itemList.find((el)=>el.title==newProduct.title)){
+  alert("Product Already added in Cart");
+  return;
+ }else{
+  itemList.push(newProduct);
+ }
+
+
+let newProductElement= createCartProduct(title,price,imgSrc);
+let element=document.createElement('div');
+element.innerHTML=newProductElement;
+let cartBasket=document.querySelector('.cart-content');
+cartBasket.append(element);
+loadContent();
+}
+
+
+function createCartProduct(title,price,imgSrc){
+
+  return `
+  <div class="cart-box">
+  <img src="${imgSrc}" class="cart-img">
+  <div class="detail-box">
+    <div class="cart-product-title">${title}</div>
+    <div class="price-box">
+      <div class="cart-price">${price}</div>
+       <div class="cart-amt">${price}</div>
+   </div>
+    <input type="number" value="1" class="cart-quantity">
+  </div>
+  <div class="cart-remove">
+        <i class="fa-solid fa-trash-can"></i></div>
+</div>
+  `;
+}
+
+function updateTotal()
+{
+  const cartItems=document.querySelectorAll('.cart-box');
+  const totalValue=document.querySelector('.total-price');
+
+  let total=0;
+
+  cartItems.forEach(product=>{
+    let priceElement=product.querySelector('.cart-price');
+    let price=parseFloat(priceElement.innerHTML.replace("Rs.",""));
+    let qty=product.querySelector('.cart-quantity').value;
+    total+=(price*qty);
+    product.querySelector('.cart-amt').innerText="Rs."+(price*qty);
+
+  });
+
+  totalValue.innerHTML='Rs.'+total;
+
+
+  // Add Product Count in Cart Icon
+
+  const cartCount=document.querySelector('.cart-count');
+  let count=itemList.length;
+  cartCount.innerHTML=count;
+
+  if(count==0){
+    cartCount.style.display='none';
+  }else{
+    cartCount.style.display='block';
+  }
+
+
+}
+
+    </script> 
+  
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    </body>
+    </html>
+
+   
